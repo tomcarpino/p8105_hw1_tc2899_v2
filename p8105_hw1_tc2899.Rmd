@@ -92,10 +92,11 @@ Create a data frame comprised of:
 set.seed(98)
 
 problem1_df = tibble(
-  vec_numeric = runif(10, min = 0, max = 5),
-  vec_logical = c(vec_numeric > 2),
-  vec_char = c("I", "think", "data", "science", "is", "a", "really", "really", "cool", "class"),
-  vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
+  x = rnorm(1000),
+  y = rnorm(1000),
+  vec_logical = c(x+y > 0),
+  #vec_char = c("I", "think", "data", "science", "is", "a", "really", "really", "cool", "class"),
+  #vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
 )
 Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * the proportion of cases for which the logical vector is TRUE
 
