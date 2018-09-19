@@ -38,7 +38,6 @@ Create a data frame comprised of:
   - A (length-10) factor vector --> done 
   
 ```{r question1]}
-
 library(tidyverse)
 
 ## set seed to ensure reproducibility
@@ -87,6 +86,7 @@ Create a data frame comprised of:
   - A factor vector created by coercing the above logical vector
   
 ```{r question2]}
+library(tidyverse)
 
 set.seed(98)
 
