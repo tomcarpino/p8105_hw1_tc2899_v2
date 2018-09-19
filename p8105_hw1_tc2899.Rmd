@@ -88,24 +88,20 @@ Create a data frame comprised of:
   
 ```{r question2]}
 
-## set seed to ensure reproducibility
-
-## the data frame 
-
 set.seed(98)
 
 problem2 = tibble(
   x = rnorm(1000),
   y = rnorm(1000),
-  logical = c(x+y > 0),
-  numeric = as.numeric(problem2$logical)
+  logical = c(x + y > 0),
+  numeric = as.numeric(problem2$logical),
   factor = as.factor(problem2$logical)
 )
 ```
 
-Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * the proportion of cases for which the logical vector is TRUE
+Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * 
 
-* The mean of the sample is `r mean(ls_df$norm_samp)`
+The mean of x is `r mean(x)` and its median is `r median(X)`. The proportion of cases for which the logical vector is TRUE is `r mean(problem2$logical)`. 
 
 Make a scatterplot of y vs x; color points using the logical variable (adding color = ... inside of aes in your ggplot code should help). Make a second and third scatterplot that color points using the numeric and factor variables, respectively, and comment on the color scales.
 
