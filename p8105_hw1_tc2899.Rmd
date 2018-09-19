@@ -22,7 +22,7 @@ create a single .Rmd file named p8105_hw1_YOURUNI.Rmd that renders to github_doc
 
 Your solutions to Problems 1 and 2 should be implemented in your .Rmd file, and your git commit history should reflect the process you used to solve these Problems.
 
---> see below!
+--> sure thing!
 
 For this Problem, we will assess adherence to the instructions above regarding repo structure, git commit history, and whether we are able to knit your .Rmd to ensure that your work is reproducible.
 
