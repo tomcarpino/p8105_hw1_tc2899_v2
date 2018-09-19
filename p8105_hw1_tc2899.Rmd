@@ -71,7 +71,22 @@ mean(problem1_df$vec_factor)
 
 When taking the mean of each variable of the dataframe, vec_numeric and vec_logical both work, whereas vec_char and vec_factor do not work. This is because the mathematical average can be found for the first two variables, where vec_numeric ranges from 0 to 5, and vec_logic ranges from 0 to 1. The other two variables cannot be computed using letters as is. 
 
-In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens? In a second code chunk, convert your character variable from character to factor to numeric; similarly, convert your factor variable from factor to character to numeric. What happens?
+-- 
+
+In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens? 
+
+```{r}
+as.numeric(problem1_df$vec_logical)
+as.numeric(problem1_df$vec_char)
+as.numeric(problem1_df$vec_factor)
+
+```
+
+When converting the logical, character, and factor variables ot numeric variables, only logical and factor function properly. The character variable did not convert to numeric. 
+
+-- 
+
+In a second code chunk, convert your character variable from character to factor to numeric; similarly, convert your factor variable from factor to character to numeric. What happens?
 
 **Problem 2:**
 
