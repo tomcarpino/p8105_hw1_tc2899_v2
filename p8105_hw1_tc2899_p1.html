@@ -148,14 +148,39 @@ $(document).ready(function () {
 <li>a lack of superfluous code (e.g. no unused variables are defined)</li>
 </ul>
 <p><strong>Problem 1:</strong></p>
-<p>This problem focuses on variable types and coercion.</p>
 <p>Create a data frame comprised of:</p>
 <ul>
-<li>A random sample of size 10 from a uniform[0, 5] distribution</li>
-<li>A logical vector indicating whether elements of the sample are greater than 2</li>
-<li>A (length-10) character vector</li>
-<li>A (length-10) factor vector</li>
+<li>A random sample of size 10 from a uniform[0, 5] distribution –&gt; done</li>
+<li>A logical vector indicating whether elements of the sample are greater than 2 –&gt; done</li>
+<li>A (length-10) character vector –&gt; done</li>
+<li>A (length-10) factor vector –&gt; done</li>
 </ul>
+<pre class="r"><code>#creating data frame
+
+library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ----------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.0.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.6
+## v tidyr   0.8.1     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts -------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>## set seed to ensure reproducibility
+
+set.seed(98)
+
+problem1_df = tibble(
+  vec_numeric = runif(10, min = 0, max = 5),
+  vec_logical = c(vec_numeric &gt; 2),
+  vec_char = c(&quot;I&quot;, &quot;think&quot;, &quot;data&quot;, &quot;science&quot;, &quot;is&quot;, &quot;a&quot;, &quot;really&quot;, &quot;really&quot;, &quot;cool&quot;, &quot;class&quot;),
+  vec_factor = factor(c(&quot;big&quot;, &quot;small&quot;, &quot;big&quot;, &quot;small&quot;, &quot;small&quot;,&quot;big&quot;, &quot;small&quot;, &quot;big&quot;, &quot;small&quot;, &quot;small&quot;))
+)
+
+mean(problem1_df)</code></pre>
+<pre><code>## Warning in mean.default(problem1_df): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
 <p>Try to take the mean of each variable in your dataframe. What works and what doesn’t? Why?</p>
 <p>In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens? In a second code chunk, convert your character variable from character to factor to numeric; similarly, convert your factor variable from factor to character to numeric. What happens?</p>
 <p><strong>Problem 2:</strong></p>

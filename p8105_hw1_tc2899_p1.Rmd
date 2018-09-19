@@ -42,16 +42,36 @@ This “problem” focuses on correct styling for your solutions to Problems 1 a
   - a lack of superfluous code (e.g. no unused variables are defined)
   
 **Problem 1:** 
-  
-This problem focuses on variable types and coercion.
 
 Create a data frame comprised of:
 
-  - A random sample of size 10 from a uniform[0, 5] distribution
-  - A logical vector indicating whether elements of the sample are greater than 2
-  - A (length-10) character vector
-  - A (length-10) factor vector
+  - A random sample of size 10 from a uniform[0, 5] distribution --> done 
+  - A logical vector indicating whether elements of the sample are greater than 2 --> done 
+  - A (length-10) character vector --> done 
+  - A (length-10) factor vector --> done 
+  
+```{r question1]}
 
+#creating data frame
+
+library(tidyverse)
+
+## set seed to ensure reproducibility
+
+set.seed(98)
+
+problem1_df = tibble(
+  vec_numeric = runif(10, min = 0, max = 5),
+  vec_logical = c(vec_numeric > 2),
+  vec_char = c("I", "think", "data", "science", "is", "a", "really", "really", "cool", "class"),
+  vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
+)
+
+mean(vec_numeric)
+mean(vec_logical)
+mean(vec_char)
+mean(vec_factor)
+```
 Try to take the mean of each variable in your dataframe. What works and what doesn’t? Why?
 
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens? In a second code chunk, convert your character variable from character to factor to numeric; similarly, convert your factor variable from factor to character to numeric. What happens?
