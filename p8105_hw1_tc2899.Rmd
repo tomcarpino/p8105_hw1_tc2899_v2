@@ -47,43 +47,37 @@ set.seed(98)
 
 #creating data frame
 
-problem1_df = tibble(
+problem1 = tibble(
   vec_numeric = runif(10, min = 0, max = 5),
   vec_logical = c(vec_numeric > 2),
   vec_char = c("I", "think", "data", "science", "is", "a", "really", "really", "cool", "class"),
   vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
 )
 
-mean(problem1_df$vec_numeric)
-mean(problem1_df$vec_logical)
-mean(problem1_df$vec_char)
-mean(problem1_df$vec_factor)
+mean(problem1$vec_numeric)
+mean(problem1$vec_logical)
+mean(problem1$vec_char)
+mean(problem1$vec_factor)
 ```
 
 When taking the mean of each variable of the dataframe, vec_numeric and vec_logical both work, whereas vec_char and vec_factor do not work. This is because the mathematical average can be found for the first two variables, where vec_numeric ranges from 0 to 5, and vec_logic ranges from 0 to 1. The other two variables cannot be computed using letters as is - NAs are produced as the result. 
 
--- 
-
 ```{r}
-as.numeric(problem1_df$vec_logical)
-as.numeric(problem1_df$vec_char)
-as.numeric(problem1_df$vec_factor)
+as.numeric(problem1$vec_logical)
+as.numeric(problem1$vec_char)
+as.numeric(problem1$vec_factor)
 ```
 
 When converting the logical, character, and factor variables ot numeric variables, only logical and factor function properly. The character variable did not convert to numeric - NAs are produced 'by coercion'. 
 
--- 
-
 ```{r}
-as.numeric(as.factor(problem1_df$vec_char))
-as.numeric(as.character(problem1_df$vec_factor))
+as.numeric(as.factor(problem1$vec_char))
+as.numeric(as.character(problem1$vec_factor))
 ```
 
 When converting logical to character to factor to numeric, the function works properly and provides numeric output. However, when converting factor to character to numeric, the function does not work properly and NAs are produced 'by coercion'. 
 
 **Problem 2:**
-
-This problem focuses on plotting and the use of inline R code.
 
 Create a data frame comprised of:
   - x: a random sample of size 1000 from a standard Normal distribution
@@ -100,13 +94,15 @@ Create a data frame comprised of:
 
 set.seed(98)
 
-problem1_df = tibble(
+problem2 = tibble(
   x = rnorm(1000),
   y = rnorm(1000),
-  vec_logical = c(x+y > 0),
-  #vec_char = c("I", "think", "data", "science", "is", "a", "really", "really", "cool", "class"),
-  #vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
+  logical = c(x+y > 0),
+  numeric = as.numeric(problem2$logical)
+  factor = as.factor(problem2$logical)
 )
+```
+
 Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * the proportion of cases for which the logical vector is TRUE
 
 * The mean of the sample is `r mean(ls_df$norm_samp)`
