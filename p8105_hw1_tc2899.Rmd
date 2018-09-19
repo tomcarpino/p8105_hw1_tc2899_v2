@@ -12,21 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Problem 0.1**
 
-Create a public GitHub repo + local R Project
+Create a public GitHub repo + local R Project --> complete! 
+create a single .Rmd file named p8105_hw1_YOURUNI.Rmd that renders to github_document --> complete! 
 
---> complete! 
+Your solutions to Problems 1 and 2 should be implemented in your .Rmd file, and your git commit history should reflect the process you used to solve these Problems. --> sure thing!
 
-create a single .Rmd file named p8105_hw1_YOURUNI.Rmd that renders to github_document
-
---> complete! 
-
-Your solutions to Problems 1 and 2 should be implemented in your .Rmd file, and your git commit history should reflect the process you used to solve these Problems.
-
---> sure thing!
-
-For this Problem, we will assess adherence to the instructions above regarding repo structure, git commit history, and whether we are able to knit your .Rmd to ensure that your work is reproducible.
-
---> sounds good! 
+For this Problem, we will assess adherence to the instructions above regarding repo structure, git commit history, and whether we are able to knit your .Rmd to ensure that your work is reproducible. --> sounds good! 
 
 **Problem 0.2**
 
