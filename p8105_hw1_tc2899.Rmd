@@ -63,12 +63,13 @@ problem1_df = tibble(
   vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
 )
 
-mean(vec_numeric)
-mean(vec_logical)
-mean(vec_char)
-mean(vec_factor)
+mean(problem1_df$vec_numeric)
+mean(problem1_df$vec_logical)
+mean(problem1_df$vec_char)
+mean(problem1_df$vec_factor)
 ```
-Try to take the mean of each variable in your dataframe. What works and what doesn’t? Why?
+
+When taking the mean of each variable of the dataframe, vec_numeric and vec_logical both work, whereas vec_char and vec_factor do not work. This is because the mathematical average can be found for the first two variables, where vec_numeric ranges from 0 to 5, and vec_logic ranges from 0 to 1. The other two variables cannot be computed using letters as is. 
 
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens? In a second code chunk, convert your character variable from character to factor to numeric; similarly, convert your factor variable from factor to character to numeric. What happens?
 
@@ -99,6 +100,8 @@ problem1_df = tibble(
   #vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
 )
 Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * the proportion of cases for which the logical vector is TRUE
+
+* The mean of the sample is `r mean(ls_df$norm_samp)`
 
 Make a scatterplot of y vs x; color points using the logical variable (adding color = ... inside of aes in your ggplot code should help). Make a second and third scatterplot that color points using the numeric and factor variables, respectively, and comment on the color scales.
 
