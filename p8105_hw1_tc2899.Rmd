@@ -98,9 +98,7 @@ problem2b = tibble(
 )
 ```
 
-Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * 
-
-The mean of x is `r mean(x)` and its median is `r median(X)`. The proportion of cases for which the logical vector is TRUE is `r mean(problem2$logical)`. 
+The size of the dataset is `r dim(problem2b)`. The mean of x is `r mean(problem2$x)` and the median of x is `r median(problem2$x)`. The proportion of cases for which the logical vector is TRUE is `r mean(problem2$logical)`. 
 
 **Scatterplots / Visualizations**
 
