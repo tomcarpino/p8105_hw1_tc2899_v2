@@ -77,13 +77,6 @@ as.numeric(as.character(problem1$vec_factor))
 When converting logical to character to factor to numeric, the function works properly and provides numeric output. However, when converting factor to character to numeric, the function does not work properly and NAs are produced 'by coercion'. 
 
 **Problem 2:**
-
-Create a data frame comprised of:
-  - x: a random sample of size 1000 from a standard Normal distribution
-  - y: a random sample of size 1000 from a standard Normal distribution
-  - A logical vector indicating whether the x + y > 0
-  - A numeric vector created by coercing the above logical vector
-  - A factor vector created by coercing the above logical vector
   
 ```{r question2]}
 library(tidyverse)
@@ -97,9 +90,10 @@ problem2 = tibble(
   )
 
 problem2b = tibble(
-  problem2$x problem2$y
-  problem2$logical
-  numeric = as.numeric(problem2$logical)
+  problem2$x,
+  problem2$y,
+  problem2$logical,
+  numeric = as.numeric(problem2$logical),
   factor = as.factor(problem2$logical)
 )
 ```
