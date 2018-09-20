@@ -79,6 +79,7 @@ When converting logical to character to factor to numeric, the function works pr
 **Problem 2:**
   
 ```{r question2]}
+
 library(tidyverse)
 
 set.seed(98)
@@ -96,13 +97,22 @@ problem2b = tibble(
   numeric = as.numeric(problem2$logical),
   factor = as.factor(problem2$logical)
 )
+
 ```
 
 The size of the dataset is `r dim(problem2b)`. The mean of x is `r mean(problem2$x)` and the median of x is `r median(problem2$x)`. The proportion of cases for which the logical vector is TRUE is `r mean(problem2$logical)`. 
 
 **Scatterplots / Visualizations**
 
-Make a scatterplot of y vs x; color points using the logical variable (adding color = ... inside of aes in your ggplot code should help). Make a second and third scatterplot that color points using the numeric and factor variables, respectively, and comment on the color scales.
+Make a second and third scatterplot that color points using the numeric and factor variables, respectively, and comment on the color scales.
 
-Export your first scatterplot to your project directory using ggsave.
+```{r xy_scattter1}
+ggplot(problem2b, aes(x = problem2$x, y = problem2$y, color = problem2$y)) + geom_point()
+
+ggsave("problem2b.pdf")
+
+ggplot(problem2b, aes(x = problem2$x, y = numeric, color = numeric)) + geom_point()
+
+ggplot(problem2b, aes(x = problem2$x, y = factor, color = factor)) + geom_point()
+```
   
