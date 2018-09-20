@@ -94,6 +94,7 @@ problem2 = tibble(
 
 ```
 
+**Description of the dataframe:**
 The size of the dataset is `r dim(problem2)`. The mean of x is `r mean(problem2$x)` and the median of x is `r median(problem2$x)`. The proportion of cases for which the logical vector is TRUE is `r mean(problem2$logical)`. 
 
 **Scatterplots / Visualizations**
@@ -101,12 +102,16 @@ The size of the dataset is `r dim(problem2)`. The mean of x is `r mean(problem2$
 Make a second and third scatterplot that color points using the numeric and factor variables, respectively, and comment on the color scales.
 
 ```{r xy_scattter1}
-ggplot(problem2, aes(x = problem2$x, y = problem2$y, color = problem2$y)) + geom_point()
+ggplot(problem2, aes(x = x, y = y, color = y)) + geom_point()
 
 ggsave("problem2.pdf")
+```
 
-ggplot(problem2, aes(x = problem2$x, y = numeric, color = numeric)) + geom_point()
+```{r scatterplot2}
+ggplot(problem2, aes(x = x, y = y, color = numeric)) + geom_point()
+```
 
-ggplot(problem2, aes(x = problem2$x, y = factor, color = factor)) + geom_point()
+```{r scaterplot3}
+ggplot(problem2, aes(x = x, y = y, color = factor)) + geom_point()
 ```
   
