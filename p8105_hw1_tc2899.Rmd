@@ -4,30 +4,12 @@ output: html_document
 author: Thomas Carpino, tc2899
 ---
 
+Here I am loading knitr! 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**HW 1 Instructions:**
-
-**Problem 0.1**
-
-Create a public GitHub repo + local R Project --> complete! 
-create a single .Rmd file named p8105_hw1_YOURUNI.Rmd that renders to github_document --> complete! 
-
-Your solutions to Problems 1 and 2 should be implemented in your .Rmd file, and your git commit history should reflect the process you used to solve these Problems. --> sure thing!
-
-For this Problem, we will assess adherence to the instructions above regarding repo structure, git commit history, and whether we are able to knit your .Rmd to ensure that your work is reproducible. --> sounds good! 
-
-**Problem 0.2**
-
-This “problem” focuses on correct styling for your solutions to Problems 1 and 2. We will look for:
-
-  - meaningful variable / object names
-  - readable code (one command per line; adequate whitespace and indentation; etc)
-  - clearly-written text to explain code and results
-  - a lack of superfluous code (e.g. no unused variables are defined)
-  
 **Problem 1:** 
 
 Create a data frame comprised of:
@@ -36,7 +18,9 @@ Create a data frame comprised of:
   - A logical vector indicating whether elements of the sample are greater than 2 --> done 
   - A (length-10) character vector --> done 
   - A (length-10) factor vector --> done 
-  
+
+Here I am loading tidyverse. 
+
 ```{r question1]}
 library(tidyverse)
 
@@ -44,7 +28,7 @@ library(tidyverse)
 
 set.seed(98)
 
-#creating data frame
+## creating my data frame
 
 problem1 = tibble(
   vec_numeric = runif(10, min = 0, max = 5),
@@ -53,6 +37,7 @@ problem1 = tibble(
   vec_factor = factor(c("big", "small", "big", "small", "small","big", "small", "big", "small", "small"))
 )
 
+## here I am taking the mean of each of the different variables. 
 mean(problem1$vec_numeric)
 mean(problem1$vec_logical)
 mean(problem1$vec_char)
@@ -65,6 +50,8 @@ When taking the mean of each variable of the dataframe, vec_numeric and vec_logi
 as.numeric(problem1$vec_logical)
 as.numeric(problem1$vec_char)
 as.numeric(problem1$vec_factor)
+
+## Above, I am trying to coerce the different variables (logical, character, and factor) to become numeric variables. 
 ```
 
 When converting the logical, character, and factor variables ot numeric variables, only logical and factor function properly. The character variable did not convert to numeric - NAs are produced 'by coercion'. 
@@ -72,17 +59,25 @@ When converting the logical, character, and factor variables ot numeric variable
 ```{r}
 as.numeric(as.factor(problem1$vec_char))
 as.numeric(as.character(problem1$vec_factor))
+
+## Above, I am attempting to coerce (char -> factor -> numeric) and (factor -> char -> numeric)
 ```
 
 When converting logical to character to factor to numeric, the function works properly and provides numeric output. However, when converting factor to character to numeric, the function does not work properly and NAs are produced 'by coercion'. 
 
 **Problem 2:**
-  
+
 ```{r question2]}
+
+## Here, I am loading tidyverse once again: 
 
 library(tidyverse)
 
+## Setting the seed:
+
 set.seed(98)
+
+## Creating the dataframe for problem 2:
 
 problem2 = tibble(
   x = rnorm(1000),
@@ -99,17 +94,21 @@ The size of the dataset is `r dim(problem2)`. The mean of x is `r mean(problem2$
 
 **Scatterplots / Visualizations**
 
-Make a second and third scatterplot that color points using the numeric and factor variables, respectively, and comment on the color scales.
+Here, I am creating a scatterplot of y vs x (as requested in the homework), and am using the logical vector to determine the color scale. 
 
 ```{r xy_scattter1}
-ggplot(problem2, aes(x = x, y = y, color = y)) + geom_point()
+ggplot(problem2, aes(x = y, y = x, color = logical)) + geom_point()
 
 ggsave("problem2.pdf")
 ```
 
+Here is a second scatterplot of y vs x, where the color points are being determined by the numeric vector:
+
 ```{r scatterplot2}
-ggplot(problem2, aes(x = x, y = y, color = numeric)) + geom_point()
+ggplot(problem2, aes(x = y, y = x, color = numeric)) + geom_point()
 ```
+
+Here is a third scatterplot of y vs x, where the color points are being determined by the factor vector:
 
 ```{r scaterplot3}
 ggplot(problem2, aes(x = x, y = y, color = factor)) + geom_point()
