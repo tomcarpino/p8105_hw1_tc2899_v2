@@ -94,7 +94,7 @@ The size of the dataset is `r dim(problem2)`. The mean of x is `r mean(problem2$
 
 **Scatterplots / Visualizations**
 
-Here, I am creating a scatterplot of y vs x (as requested in the homework), and am using the logical vector to determine the color scale. 
+Here, I am creating a scatterplot of y vs x (as requested in the homework), and am using the logical vector to determine the color scale. When the logical statement is true (X+Y>0), then the point will be blue (TRUE) whereas when the logical statement is FALSE, the points will appear red. 
 
 ```{r xy_scattter1}
 ggplot(problem2, aes(x = y, y = x, color = logical)) + geom_point()
@@ -102,13 +102,13 @@ ggplot(problem2, aes(x = y, y = x, color = logical)) + geom_point()
 ggsave("problem2.pdf")
 ```
 
-Here is a second scatterplot of y vs x, where the color points are being determined by the numeric vector:
+Here is a second scatterplot of y vs x, where the color points are being determined by the numeric vector. Since the numeric vector is either 0 or 1, the points will either appear light blue (1.0) or dark blue/ black (0.0).
 
 ```{r scatterplot2}
 ggplot(problem2, aes(x = y, y = x, color = numeric)) + geom_point()
 ```
 
-Here is a third scatterplot of y vs x, where the color points are being determined by the factor vector:
+Here is a third scatterplot of y vs x, where the color points are being determined by the factor vector. This is essentially the same image as the first scatterplot, where if the value is FALSE, it is colored red, whereas TRUE is demarkated by the blue color. 
 
 ```{r scaterplot3}
 ggplot(problem2, aes(x = x, y = y, color = factor)) + geom_point()
